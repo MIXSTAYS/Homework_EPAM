@@ -1,2 +1,2 @@
 # EPAMLessons
-### Tasks received from Anna
+### Tasks received from Anna.
