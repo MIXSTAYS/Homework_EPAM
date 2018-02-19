@@ -3,6 +3,6 @@ package musicalInstrument;
 import melody.Melody;
 
 public interface MusicalInstrument {
-    void information(String name, String melody);
+    void play(String melody);
     void description();
 }

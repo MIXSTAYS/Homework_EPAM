@@ -10,7 +10,7 @@ public class Trombone extends WindInstrument {
     }
 
     @Override
-    public void information(String name, String  melody) {
+    public void play(String  melody) {
         tromboneMelody.setMelody(melody);
         this.setTone(10);
         System.out.println("This trombon name - " + getName() + ". Playing " + tromboneMelody.getMelody()

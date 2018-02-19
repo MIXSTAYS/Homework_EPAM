@@ -17,9 +17,9 @@ public class Guitar extends StringedInstrument {
     }
 
     @Override
-    public void information(String name, String melody) {  // Полиморфизм
+    public void play(String melody) {  // Полиморфизм
         guitarMelody.setMelody(melody);
-        System.out.println("This guitar name - " + name + ". Playing " + guitarMelody.getMelody()
+        System.out.println("This guitar name - " + getName() + ". Playing " + guitarMelody.getMelody()
                 + " by " + getNumberOfStrings() + " strings." );
     } // Polymorphism
 
