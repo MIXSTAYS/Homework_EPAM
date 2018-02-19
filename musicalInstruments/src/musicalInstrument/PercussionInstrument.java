@@ -11,7 +11,7 @@ abstract class PercussionInstrument implements MusicalInstrument {
         this.material = material;
     }
 
-    public abstract void information(String name, Melody melody);
+    public abstract void information(String name, String melody);
 
     public abstract void description();
 

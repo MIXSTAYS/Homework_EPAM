@@ -10,7 +10,7 @@ abstract class StringedInstrument implements MusicalInstrument {
         this.name = name;
     }
 
-    public abstract void information(String name, Melody melody); // Inheritance
+    public abstract void information(String name, String melody); // Inheritance
 
     public abstract void description();
 

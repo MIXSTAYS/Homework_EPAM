@@ -6,18 +6,16 @@ import musicalInstrument.Trombone;
 public class App {
     public static void main(String[] args) {
 
-        Melody melody = new Melody("song");
-
-        Guitar guitar = new Guitar("Salaga");
+        Guitar guitar = new Guitar("Salaga", 6);
         guitar.description();
-        guitar.information(guitar.getName(), melody);
+        guitar.information(guitar.getName(), "Guitar theme");
 
         Trombone trombone = new Trombone("Spooody");
         trombone.description();
-        trombone.information(trombone.getName(), melody);
+        trombone.information(trombone.getName(), "Boo-oo");
 
         Drum drum = new Drum("Barabani", "Zhelezo");
         drum.description();
-        drum.information(drum.getName(), melody);
+        drum.information(drum.getName(), "Drums bit");
     }
 }
