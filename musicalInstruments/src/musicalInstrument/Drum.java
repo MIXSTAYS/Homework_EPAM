@@ -12,7 +12,7 @@ public class Drum extends PercussionInstrument {
     @Override
     public void information(String name, Melody melody) {
         this.drumsBit.setMelody(melody.getMelody());
-        System.out.println("This drums name - " + getName() + ". Playing " + drumsBit.getMelody()
+        System.out.println("This drum name - " + getName() + ". Playing " + drumsBit.getMelody()
                 + ". Material - " + getMaterial());
     }
 
