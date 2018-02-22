@@ -5,7 +5,7 @@ import melody.Melody;
 public class Drum extends PercussionInstrument {
     private Melody drumsBit = new Melody("Bom-bom-bam!");
 
-    public Drum(String name, String material){
+    public Drum(String name, String material) {
         super(name, material);
     }
 

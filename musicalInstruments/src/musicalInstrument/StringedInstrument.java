@@ -7,7 +7,7 @@ abstract class StringedInstrument implements MusicalInstrument {
     private String name;
 
 
-    public StringedInstrument(String name){
+    public StringedInstrument(String name) {
         this.name = name;
     }
 

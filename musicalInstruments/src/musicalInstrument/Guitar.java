@@ -6,9 +6,9 @@ import melody.Melody;
 public class Guitar extends StringedInstrument {
     private Melody guitarMelody = new Melody("Brenk-brenk");
 
-    public Guitar (String name, int numberOfStrings){
+    public Guitar(String name, int numberOfStrings) {
         super(name);
-        if(numberOfStrings == 6 || numberOfStrings == 7){
+        if (numberOfStrings == 6 || numberOfStrings == 7) {
             setNumberOfStrings(numberOfStrings);
         } else {
             throw new RuntimeException("wrongNumberOfStrings");
@@ -20,7 +20,7 @@ public class Guitar extends StringedInstrument {
     public void play(String melody) {  // Полиморфизм
         guitarMelody.setMelody(melody);
         System.out.println("This guitar name - " + getName() + ". Playing " + guitarMelody.getMelody()
-                + " by " + getNumberOfStrings() + " strings." );
+                + " by " + getNumberOfStrings() + " strings.");
     } // Polymorphism
 
     @Override

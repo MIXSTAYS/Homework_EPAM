@@ -5,15 +5,19 @@ import musicalInstrument.Trombone;
 
 public class App {
     public static void main(String[] args) {
-
         Guitar guitar = new Guitar("Salaga", 6);
         guitar.description();
         guitar.play("Guitar theme");
         System.out.println();
 
-        Trombone trombone = new Trombone("Spooody");
+        Trombone trombone = new Trombone("Trombone");
         trombone.description();
-        trombone.play("Boo-oo");
+        trombone.play("Trombone sound");
+        System.out.println();
+
+        Trombone trombone1 = new Trombone("Trombone1");
+        trombone1.description();
+        trombone1.play("Trombone1 sound", 6);
         System.out.println();
 
         Drum drum = new Drum("Barabani", "Zhelezo");
@@ -36,7 +40,7 @@ public class App {
             } else {
                 System.out.println(music[i] + " do not accept to musical instruments");
             }
-            System.out.println(music[i++].toString());
+            i++;
         }
     }
 }
