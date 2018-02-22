@@ -2,7 +2,7 @@ package t01.main.java;
 
 import java.math.BigDecimal;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Pen black = new Pen("Parker");
         black.setInkColorAndPenSize("Black", 0.815);
