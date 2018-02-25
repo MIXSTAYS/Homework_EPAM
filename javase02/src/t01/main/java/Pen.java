@@ -1,14 +1,12 @@
 package t01.main.java;
 
-import static t01.main.java.PenColor.BLUE;
-
 public class Pen {
     private String brand;
     private PenColor inkColor;
     private double penSize;
 
     public Pen(String brand) {
-        this(brand, BLUE, 0.8);
+        this(brand, PenColor.BLUE, 0.8);
     }
 
     public Pen(String brand, PenColor inkColor, double penSize) {
