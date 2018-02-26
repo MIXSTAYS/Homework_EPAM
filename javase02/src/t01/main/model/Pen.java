@@ -1,6 +1,6 @@
-package t01.main.java;
+package t01.main.model;
 
-import static t01.main.java.PenColor.BLUE;
+import static t01.main.model.PenColor.BLUE;
 
 public class Pen {
     private String brand;

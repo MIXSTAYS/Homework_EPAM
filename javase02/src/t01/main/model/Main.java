@@ -1,8 +1,6 @@
-package t01.main.java;
+package t01.main.model;
 
-import java.math.BigDecimal;
-
-import static t01.main.java.PenColor.*;
+import static t01.main.model.PenColor.*;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package t01.main.java;
+package t01.main.model;
 
 public enum PenColor {
     BLUE,
