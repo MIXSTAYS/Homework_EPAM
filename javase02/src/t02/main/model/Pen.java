@@ -1,15 +1,22 @@
 package t02.main.model;
 
+import static t02.main.model.Color.*;
+
 public class Pen extends Stationery{
     private Color inkColor;
+    public Pen (){
+    }
     public Pen(String brand) {
         super(brand);
+        inkColor = BLUE;
     }
     public Pen(int price) {
         super(price);
+        inkColor = BLUE;
     }
     public Pen(String brand, int price) {
         super(brand, price);
+        inkColor = BLUE;
     }
     public Pen(int price, Color inkColor){
         super(price);

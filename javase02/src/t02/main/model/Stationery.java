@@ -4,7 +4,9 @@ public class Stationery {
     private String brand;
     private int price;
 
-    public Stationery(){}
+    public Stationery(){
+        brand = "Unknown";
+    }
     public Stationery(String brand){
         this.brand = brand;
     }

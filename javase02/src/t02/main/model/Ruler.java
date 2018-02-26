@@ -2,14 +2,19 @@ package t02.main.model;
 
 public class Ruler extends Stationery {
     private int length;
+    public Ruler (){
+    }
     public Ruler(String brand){
         super(brand);
+        length = 10;
     }
     public Ruler(int price){
         super(price);
+        length = 10;
     }
     public Ruler(String brand, int price){
         super(brand, price);
+        length = 10;
     }
     public Ruler (int price, int length){
         super(price);

@@ -1,6 +1,8 @@
 package t02.main.model;
 
 public class Pencil extends Stationery{
+    public Pencil(){
+    }
     public Pencil(String brand){
         super(brand);
     }

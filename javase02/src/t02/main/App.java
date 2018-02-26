@@ -22,5 +22,6 @@ public class App {
         System.out.println(pen.hashCode() + "    " + anotherPen.hashCode());
 
         System.out.println(workplace.stationeryPriceCounter());
+
     }
 }

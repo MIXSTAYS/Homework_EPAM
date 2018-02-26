@@ -27,14 +27,14 @@ public class EmployeeWorkplace {
         return kit;
     }
 
-    public void addToKit(Stationery kit) {
-        this.kit.add(kit);
+    public void addToKit(Stationery stationery) {
+        this.kit.add(stationery);
     }
 
     public int stationeryPriceCounter(){
         int priceCounter = 0;
-        for(Stationery kit : kit){
-            priceCounter+= kit.getPrice();
+        for(Stationery stationery : kit){
+            priceCounter+= stationery.getPrice();
         }
         return priceCounter;
     }
