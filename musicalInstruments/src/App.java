@@ -15,9 +15,9 @@ public class App {
         trombone.play("Trombone sound");
         System.out.println();
 
-        Trombone trombone1 = new Trombone("Trombone1");
-        trombone1.description();
-        trombone1.play("Trombone1 sound", 6);
+        Trombone anotherTrombone = new Trombone("Another Trombone");
+        anotherTrombone.description();
+        anotherTrombone.play("Another trombone's sound", 6);
         System.out.println();
 
         Drum drum = new Drum("Barabani", "Zhelezo");
@@ -25,18 +25,21 @@ public class App {
         drum.play("Drums bit");
         System.out.println();
 
-        MusicalInstrument[] music = new MusicalInstrument[3];
+        MusicalInstrument[] music = new MusicalInstrument[4];
         music[0] = guitar;
         music[1] = trombone;
-        music[2] = drum;
+        music[2] = anotherTrombone;
+        music[3] = drum;
         int i = 0;
         for (MusicalInstrument mus : music) {
             if (music[i] instanceof Drum) {
-                music[i].description();
+                drum.setBit(4);
+                System.out.println("Bit: " + ((Drum)music[i]).getBit());
             } else if (music[i] instanceof Guitar) {
-                music[i].description();
+                System.out.println("This guitar have " + ((Guitar) music[i]).getNumberOfStrings() +
+                        " strings.");
             } else if (music[i] instanceof Trombone) {
-                music[i].description();
+                System.out.println("Tone: " + ((Trombone)music[i]).getTone());
             } else {
                 System.out.println(music[i] + " do not accept to musical instruments");
             }
