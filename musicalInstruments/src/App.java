@@ -30,20 +30,19 @@ public class App {
         music[1] = trombone;
         music[2] = anotherTrombone;
         music[3] = drum;
-        int i = 0;
         for (MusicalInstrument mus : music) {
-            if (music[i] instanceof Drum) {
+            mus.play("something");
+            if (mus instanceof Drum) {
                 drum.setBit(4);
-                System.out.println("Bit: " + ((Drum)music[i]).getBit());
-            } else if (music[i] instanceof Guitar) {
-                System.out.println("This guitar have " + ((Guitar) music[i]).getNumberOfStrings() +
+                System.out.println("Bit: " + ((Drum)mus).getBit());
+            } else if (mus instanceof Guitar) {
+                System.out.println("This guitar have " + ((Guitar) mus).getNumberOfStrings() +
                         " strings.");
-            } else if (music[i] instanceof Trombone) {
-                System.out.println("Tone: " + ((Trombone)music[i]).getTone());
+            } else if (mus instanceof Trombone) {
+                System.out.println("Tone: " + ((Trombone)mus).getTone());
             } else {
-                System.out.println(music[i] + " do not accept to musical instruments");
+                System.out.println(mus + " do not accept to musical instruments");
             }
-            i++;
         }
     }
 }
