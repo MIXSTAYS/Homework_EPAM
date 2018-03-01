@@ -1,15 +1,16 @@
 package t02.main.model;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class EmployeeWorkplace {
     private String employeeName;
-    private LinkedList<Stationery> kit;
+    private List<Stationery> kit;
     public EmployeeWorkplace(String employeeName){
         this.employeeName = employeeName;
         kit = new LinkedList<>();
     }
-    public EmployeeWorkplace (String employeeName, LinkedList<Stationery> kit){
+    public EmployeeWorkplace (String employeeName, List<Stationery> kit){
         this.employeeName = employeeName;
         this.kit = new LinkedList<>(kit);
     }
@@ -23,7 +24,7 @@ public class EmployeeWorkplace {
         this.employeeName = employeeName;
     }
 
-    public LinkedList<Stationery> getKit() {
+    public List<Stationery> getKit() {
         return kit;
     }
 
