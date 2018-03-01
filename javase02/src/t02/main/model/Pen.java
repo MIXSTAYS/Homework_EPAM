@@ -43,8 +43,11 @@ public class Pen extends Stationery{
             return false;
         }
         Pen pen = (Pen) obj;
-        if(inkColor == pen.inkColor ||
-                        (inkColor != null && inkColor.equals(pen.getInkColor()))); {
+        if(getPrice() == pen.getPrice() &&
+                (getBrand() == pen.getBrand() ||
+                        (getBrand() != null && getBrand().equals(pen.getBrand()))) &&
+                (inkColor == pen.inkColor ||
+                        (inkColor != null && inkColor.equals(pen.getInkColor())))); {
             return true;
         }
     }

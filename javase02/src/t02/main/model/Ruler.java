@@ -42,7 +42,10 @@ public class Ruler extends Stationery {
             return false;
         }
         Ruler ruler = (Ruler) obj;
-        if(length == ruler.length){
+        if(length == ruler.length &&
+                (getPrice() == ruler.getPrice()) &&
+                (getBrand() == ruler.getBrand() ||
+                        (getBrand() != null && getBrand().equals(ruler.getBrand())))){
             return true;
         }
         return super.equals(obj);
