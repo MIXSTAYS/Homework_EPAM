@@ -65,9 +65,7 @@ public class Pen {
 
     @Override
     public String toString() {
-        String formattedPenSize = String.format("%.1f", penSize);
-        return "Brand " + brand +
-                ". Pen size: " + formattedPenSize +
-                ". Color of the ink - " + inkColor;
+        String formatted = String.format("Brand %s. Pen size: %.1f. Color of the ink - %s", brand, penSize, inkColor);
+        return formatted;
     }
 }
