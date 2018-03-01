@@ -1,18 +1,16 @@
 package t02.main.model;
 
 public class Stationery {
-    private String brand;
+    private String brand = "Unknown";
     private int price;
 
     public Stationery(){
-        brand = "Unknown";
     }
     public Stationery(String brand){
         this.brand = brand;
     }
     public Stationery(int price){
         this.price = price;
-        brand = "Unknown";
     }
     public Stationery(String brand, int price){
         this.brand = brand;
