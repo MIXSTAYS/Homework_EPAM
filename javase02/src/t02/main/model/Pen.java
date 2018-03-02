@@ -3,20 +3,17 @@ package t02.main.model;
 import static t02.main.model.Color.*;
 
 public class Pen extends Stationery{
-    private Color inkColor;
+    private Color inkColor = BLUE;
     public Pen (){
     }
     public Pen(String brand) {
         super(brand);
-        inkColor = BLUE;
     }
     public Pen(int price) {
         super(price);
-        inkColor = BLUE;
     }
     public Pen(String brand, int price) {
         super(brand, price);
-        inkColor = BLUE;
     }
     public Pen(int price, Color inkColor){
         super(price);
@@ -36,20 +33,15 @@ public class Pen extends Stationery{
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null || obj.getClass() != this.getClass()) {
-            return false;
-        }
+        if (!super.equals(obj)) return false;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
         Pen pen = (Pen) obj;
-        if(getPrice() == pen.getPrice() &&
-                (getBrand() == pen.getBrand() ||
-                        (getBrand() != null && getBrand().equals(pen.getBrand()))) &&
-                (inkColor == pen.inkColor ||
-                        (inkColor != null && inkColor.equals(pen.getInkColor())))); {
-            return true;
-        }
+        if (inkColor != pen.inkColor) return false;
+        if (inkColor != null) return true;
+        if (!inkColor.equals(pen.getInkColor())) return false;
+        return true;
     }
 
     @Override

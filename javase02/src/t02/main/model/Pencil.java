@@ -14,18 +14,7 @@ public class Pencil extends Stationery{
     }
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null || obj.getClass() != this.getClass()) {
-            return false;
-        }
-        Pencil pencil = (Pencil) obj;
-        if(getPrice() == pencil.getPrice() &&
-                (getBrand() == pencil.getBrand() ||
-                        (getBrand() != null && getBrand().equals(pencil.getBrand())))); {
-            return true;
-        }
+        return (super.equals(obj));
     }
     @Override
     public int hashCode() {
