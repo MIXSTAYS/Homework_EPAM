@@ -86,4 +86,10 @@ public class Marker extends Stationery implements WritingStationery {
     public void write(){
         System.out.println("Writes in a large handwriting");
     }
+
+    @Override
+    public String toString() {
+        String formatted = String.format("Brand \"%s\". Marker type: %s. Color of the ink - %s", getBrand(), getTypeOfMarker(), getInkColor());
+        return formatted;
+    }
 }

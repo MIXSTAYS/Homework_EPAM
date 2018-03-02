@@ -22,4 +22,10 @@ public class Pencil extends Stationery implements WritingStationery {
     public void write(){
         System.out.println("You can clean it by eraser");
     }
+
+    @Override
+    public String toString() {
+        String formatted = String.format("Brand \"%s\". Pencil price is: %d", getBrand(), getPrice());
+        return formatted;
+    }
 }

@@ -43,4 +43,11 @@ public class Paper extends Stationery {
     public void setPaperFormat(PaperFormat paperFormat) {
         this.paperFormat = paperFormat;
     }
+
+    @Override
+    public String toString() {
+        String formatted = String.format("Brand \"%s\". Paper format: %s. Number of shapes in package %d", getBrand(),
+                getPaperFormat(), getAmountInBlock());
+        return formatted;
+    }
 }

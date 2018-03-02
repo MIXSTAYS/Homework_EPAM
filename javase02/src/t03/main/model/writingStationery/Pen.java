@@ -49,4 +49,10 @@ public class Pen extends Stationery implements WritingStationery {
     public void write(){
         System.out.println("Writes in a small handwriting");
     }
+
+    @Override
+    public String toString() {
+        String formatted = String.format("Brand \"%s\". Color of the ink - %s", getBrand(), getInkColor());
+        return formatted;
+    }
 }

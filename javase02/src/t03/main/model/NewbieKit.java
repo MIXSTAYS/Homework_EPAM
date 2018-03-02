@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NewbieKit {
     private String newbieName;
-    private ArrayList<Stationery> kit;
+    private List<Stationery> kit;
     public NewbieKit(String newbieName){
         this.newbieName = newbieName;
         kit = new ArrayList<>();
@@ -25,7 +25,7 @@ public class NewbieKit {
         this.newbieName = newbieName;
     }
 
-    public ArrayList<Stationery> getKit() {
+    public List<Stationery> getKit() {
         return kit;
     }
 

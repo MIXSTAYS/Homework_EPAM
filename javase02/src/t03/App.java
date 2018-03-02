@@ -1,5 +1,6 @@
 package t03;
 
+import t03.main.model.EyeletPuncher;
 import t03.main.model.NewbieKit;
 import t03.main.model.Stationery;
 import t03.main.model.Paper;
@@ -15,6 +16,7 @@ public class App {
         Pen anotherPen = new Pen(110);
         Pencil pencil = new Pencil(15);
         Stationery paper = new Paper(250, 100);
+        Stationery eyeletPuncher = new EyeletPuncher("NoNamePuncher", 200);
 
 
         NewbieKit noob = new NewbieKit("Vasya", new ArrayList<>());
@@ -24,8 +26,9 @@ public class App {
         noob.addToKit(pen);
         noob.addToKit(paper);
         noob.addToKit(anotherPen);
+        noob.addToKit(eyeletPuncher);
 
 
-        System.out.println(noob.getKit());
+        System.out.println(noob.getKit().toString());
     }
 }
