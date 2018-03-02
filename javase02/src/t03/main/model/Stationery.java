@@ -1,18 +1,20 @@
 package t03.main.model;
 
 public class Stationery {
-    private String brand = "Unknown";
+
+    private String brand;
     private int price;
 
     public Stationery() {
+        this("Unknown", 0);
     }
 
     public Stationery(String brand) {
-        this.brand = brand;
+        this(brand, 0);
     }
 
     public Stationery(int price) {
-        this.price = price;
+        this("Unknown", price);
     }
 
     public Stationery(String brand, int price) {

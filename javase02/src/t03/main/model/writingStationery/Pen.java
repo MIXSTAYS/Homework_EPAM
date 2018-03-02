@@ -5,31 +5,17 @@ import t03.main.model.Stationery;
 import static t03.main.model.writingStationery.Color.*;
 
 public class Pen extends Stationery implements WritingStationery {
-    private Color inkColor = BLUE;
+    private Color inkColor;
 
-    public Pen() {
+    public Pen(Color inkColor) {
+        this("Unknown", 0, inkColor);
     }
-
-    public Pen(String brand) {
-        super(brand);
-    }
-
-    public Pen(int price) {
-        super(price);
-    }
-
-    public Pen(String brand, int price) {
-        super(brand, price);
-    }
-
     public Pen(int price, Color inkColor) {
-        super(price);
-        this.inkColor = inkColor;
+        this("Unknown", price, inkColor);
     }
 
     public Pen(String brand, Color inkColor) {
-        super(brand);
-        this.inkColor = inkColor;
+        this(brand, 0, inkColor);
     }
 
     public Pen(String brand, int price, Color inkColor) {

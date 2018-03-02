@@ -2,18 +2,20 @@ package t03;
 
 import t03.main.model.EyeletPuncher;
 import t03.main.model.NewbieKit;
-import t03.main.model.Stationery;
 import t03.main.model.Paper;
-import t03.main.model.writingStationery.*;
+import t03.main.model.Stationery;
+import t03.main.model.writingStationery.Color;
+import t03.main.model.writingStationery.Pen;
+import t03.main.model.writingStationery.Pencil;
 
 import java.util.ArrayList;
 
 public class App {
+
     public static void main(String[] args) {
 
-
-        Pen pen = new Pen("Pilot", 100);
-        Pen anotherPen = new Pen(110);
+        Pen pen = new Pen("Pilot", Color.GREEN);
+        Pen anotherPen = new Pen(Color.RED);
         Pencil pencil = new Pencil(15);
         Stationery paper = new Paper(250, 100);
         Stationery eyeletPuncher = new EyeletPuncher("NoNamePuncher", 200);
@@ -29,6 +31,6 @@ public class App {
         noob.addToKit(eyeletPuncher);
 
 
-        System.out.println(noob.getKit().toString());
+        System.out.println(noob.getKit());
     }
 }

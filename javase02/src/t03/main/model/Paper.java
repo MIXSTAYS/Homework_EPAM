@@ -1,20 +1,22 @@
 package t03.main.model;
 
-import t03.main.model.PaperFormat;
-import t03.main.model.Stationery;
-
-import static t03.main.model.PaperFormat.*;
+import static t03.main.model.PaperFormat.A4;
 
 public class Paper extends Stationery {
+
     private int amountInBlock;
     private PaperFormat paperFormat = A4;
 
     public Paper() {
+        this(0, 100);
     }
 
     public Paper(int price, int amountInBlock) {
-        super(price);
-        this.amountInBlock = amountInBlock;
+        this(price, amountInBlock, A4);
+    }
+
+    public Paper(int amountInBlock, PaperFormat paperFormat) {
+       this(0, amountInBlock, paperFormat);
     }
 
     public Paper(int price, int amountInBlock, PaperFormat paperFormat) {
@@ -23,10 +25,6 @@ public class Paper extends Stationery {
         this.paperFormat = paperFormat;
     }
 
-    public Paper(int amountInBlock, PaperFormat paperFormat) {
-        this.amountInBlock = amountInBlock;
-        this.paperFormat = paperFormat;
-    }
 
     public int getAmountInBlock() {
         return amountInBlock;
