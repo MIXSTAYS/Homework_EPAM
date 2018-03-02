@@ -34,9 +34,6 @@ public class Pen extends Stationery{
     @Override
     public boolean equals(Object obj) {
         if (!super.equals(obj)) return false;
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (this.getClass() != obj.getClass()) return false;
         Pen pen = (Pen) obj;
         if (inkColor != pen.inkColor) return false;
         if (inkColor != null) return true;
