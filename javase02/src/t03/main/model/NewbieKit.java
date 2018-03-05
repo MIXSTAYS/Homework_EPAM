@@ -25,11 +25,19 @@ public class NewbieKit {
         this.newbieName = newbieName;
     }
 
+    public void addToKit(Stationery stationery) {
+        this.kit.add(stationery);
+    }
+
+    public void removeFromKit(Stationery stationery){
+        this.kit.remove(stationery);
+    }
+
     public List<Stationery> getKit() {
         return kit;
     }
 
-    public void addToKit(Stationery stationery) {
-        this.kit.add(stationery);
+    public int getSize() {
+        return kit.size();
     }
 }

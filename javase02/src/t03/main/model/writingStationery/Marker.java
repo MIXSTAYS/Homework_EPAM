@@ -9,14 +9,6 @@ public class Marker extends Stationery implements WritingStationery {
     private Color inkColor;
     private TypeOfMarker typeOfMarker;
 
-    public Marker(Color inkColor, TypeOfMarker typeOfMarker) {
-        this(0, inkColor, typeOfMarker);
-    }
-
-    public Marker(String brand, Color inkColor, TypeOfMarker typeOfMarker) {
-        this(brand, 0, inkColor, typeOfMarker);
-    }
-
     public Marker(int price, Color inkColor, TypeOfMarker typeOfMarker) {
         this("Unknown", price, inkColor, typeOfMarker);
     }
@@ -44,13 +36,13 @@ public class Marker extends Stationery implements WritingStationery {
     }
 
     @Override
-    public void write(){
-        System.out.println("Writes in a large handwriting");
+    public String write(){
+        return "Writes in a large handwriting";
     }
 
     @Override
     public String toString() {
-        String formatted = String.format("Brand \"%s\". Marker type: %s. Color of the ink - %s", getBrand(), getTypeOfMarker(), getInkColor());
-        return formatted;
+        return String.format("Brand \"%s\". Marker type: %s. Color of the ink - %s",
+                getBrand(), getTypeOfMarker(), getInkColor());
     }
 }

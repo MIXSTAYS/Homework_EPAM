@@ -21,7 +21,7 @@ public class EmployeeWorkplaceTest {
 
     @Test
     public void getEmployeeNameShouldReturnTrue(){
-        Assert.assertTrue("Misha" == employeeWorkplace.getEmployeeName());
+        Assert.assertEquals("Misha", employeeWorkplace.getEmployeeName());
     }
     @Test
     public void getKitShouldReturnKit(){

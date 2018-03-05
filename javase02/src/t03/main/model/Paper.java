@@ -7,20 +7,14 @@ public class Paper extends Stationery {
     private int amountInBlock;
     private PaperFormat paperFormat = A4;
 
-    public Paper() {
-        this(0, 100);
-    }
-
-    public Paper(int price, int amountInBlock) {
-        this(price, amountInBlock, A4);
-    }
-
-    public Paper(int amountInBlock, PaperFormat paperFormat) {
-       this(0, amountInBlock, paperFormat);
-    }
-
     public Paper(int price, int amountInBlock, PaperFormat paperFormat) {
         super(price);
+        this.amountInBlock = amountInBlock;
+        this.paperFormat = paperFormat;
+    }
+
+    public Paper(String brand, int price, int amountInBlock, PaperFormat paperFormat) {
+        super(brand, price);
         this.amountInBlock = amountInBlock;
         this.paperFormat = paperFormat;
     }
@@ -44,8 +38,7 @@ public class Paper extends Stationery {
 
     @Override
     public String toString() {
-        String formatted = String.format("Brand \"%s\". Paper format: %s. Number of shapes in package %d", getBrand(),
+        return String.format("Brand \"%s\". Paper format: %s. Number of shapes in package %d", getBrand(),
                 getPaperFormat(), getAmountInBlock());
-        return formatted;
     }
 }

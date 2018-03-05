@@ -1,20 +1,17 @@
 package t02.main.model;
 
 public class Ruler extends Stationery {
-    private int length;
+    private int length = 10;
     public Ruler (){
     }
     public Ruler(String brand){
         super(brand);
-        length = 10;
     }
     public Ruler(int price){
         super(price);
-        length = 10;
     }
     public Ruler(String brand, int price){
         super(brand, price);
-        length = 10;
     }
     public Ruler (int price, int length){
         super(price);
@@ -35,9 +32,13 @@ public class Ruler extends Stationery {
 
     @Override
     public boolean equals(Object obj) {
-        if (!super.equals(obj)) return false;
+        if (!super.equals(obj)) {
+            return false;
+        }
         Ruler ruler = (Ruler) obj;
-        if (length != ruler.length) return false;
+        if (length != ruler.length) {
+            return false;
+        }
         return true;
     }
 
