@@ -38,7 +38,7 @@ public class Paper extends Stationery {
 
     @Override
     public String toString() {
-        return String.format("Brand \"%s\". Paper format: %s. Number of shapes in package %d", getBrand(),
-                getPaperFormat(), getAmountInBlock());
+        return String.format("Brand \"%s\". Paper format: %s. Number of shapes in package %d. Paper price is %d", getBrand(),
+                getPaperFormat(), getAmountInBlock(), getPrice());
     }
 }

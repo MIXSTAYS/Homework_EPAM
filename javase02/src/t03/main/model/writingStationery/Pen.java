@@ -32,6 +32,6 @@ public class Pen extends Stationery implements WritingStationery {
 
     @Override
     public String toString() {
-        return String.format("Brand \"%s\". Color of the ink - %s", getBrand(), getInkColor());
+        return String.format("Brand \"%s\". Color of the ink - %s. Price: %d", getBrand(), getInkColor(), getPrice());
     }
 }
