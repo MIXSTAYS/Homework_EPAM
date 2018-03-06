@@ -6,6 +6,7 @@ import t03.main.model.writingStationery.Pen;
 import t03.main.model.writingStationery.Pencil;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class App {
 
@@ -27,7 +28,15 @@ public class App {
         noob.addToKit(anotherPen);
         noob.addToKit(eyeletPuncher);
 
+        for (Stationery item : noob.getKit()) {
+            System.out.println(item);
+        }
 
-        System.out.println(noob.getKit());
+        System.out.println("ПРОБЕЛ");
+
+        Iterator<Stationery> iterator = noob.getKit().iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
