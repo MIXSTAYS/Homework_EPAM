@@ -1,11 +1,11 @@
 package t03.main.test;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import t02.main.model.Ruler;
 import t03.main.model.writingStationery.*;
 
+import static org.junit.Assert.assertEquals;
 import static t03.main.model.writingStationery.Color.BLACK;
 import static t03.main.model.writingStationery.Color.YELLOW;
 
@@ -25,26 +25,26 @@ public class StationeryTest {
 
     @Test
     public void getPriceShouldReturnPrice() {
-        Assert.assertEquals(20, pencil.getPrice());
-        Assert.assertEquals(470, pen.getPrice());
-        Assert.assertEquals(60, ruler.getPrice());
+        assertEquals(20, pencil.getPrice());
+        assertEquals(470, pen.getPrice());
+        assertEquals(60, ruler.getPrice());
     }
 
     @Test
     public void getBrandShouldReturnBrand() {
-        Assert.assertEquals("Koh-I-Noor", pencil.getBrand());
-        Assert.assertEquals("Senator", pen.getBrand());
-        Assert.assertEquals("Unknown", ruler.getBrand());
+        assertEquals("Koh-I-Noor", pencil.getBrand());
+        assertEquals("Senator", pen.getBrand());
+        assertEquals("Unknown", ruler.getBrand());
     }
 
     @Test
     public void getInkColorShouldReturnPenInkColor() {
-        Assert.assertEquals(BLACK, pen.getInkColor());
+        assertEquals(BLACK, pen.getInkColor());
     }
 
     @Test
     public void getLengthShouldReturnRulerLength() {
-        Assert.assertEquals(15, ruler.getLength());
+        assertEquals(15, ruler.getLength());
     }
 
     @Test
@@ -52,9 +52,9 @@ public class StationeryTest {
         pen.setBrand("Test");
         pencil.setBrand("Test");
         ruler.setBrand("Test");
-        Assert.assertEquals("Test", pen.getBrand());
-        Assert.assertEquals("Test", pencil.getBrand());
-        Assert.assertEquals("Test", ruler.getBrand());
+        assertEquals("Test", pen.getBrand());
+        assertEquals("Test", pencil.getBrand());
+        assertEquals("Test", ruler.getBrand());
     }
 
     @Test
@@ -62,21 +62,21 @@ public class StationeryTest {
         pen.setPrice(777);
         pencil.setPrice(777);
         ruler.setPrice(777);
-        Assert.assertEquals(777, pen.getPrice());
-        Assert.assertEquals(777, pencil.getPrice());
-        Assert.assertEquals(777, ruler.getPrice());
+        assertEquals(777, pen.getPrice());
+        assertEquals(777, pencil.getPrice());
+        assertEquals(777, ruler.getPrice());
     }
 
     @Test
     public void brandShouldBeUnknownForEmptyConstructorField() {
         Ruler anotherRuler = new Ruler();
-        Assert.assertEquals("Unknown", anotherRuler.getBrand());
+        assertEquals("Unknown", anotherRuler.getBrand());
     }
 
     @Test
     public void methodWriteShouldPrintDifferentMessageForDifferentObjects() {
-        Assert.assertEquals("You can clean it by eraser", pencil.write());
-        Assert.assertEquals("Writes in a small handwriting", pen.write());
-        Assert.assertEquals("Writes in a large handwriting", marker.write());
+        assertEquals("You can clean it by eraser", pencil.write());
+        assertEquals("Writes in a small handwriting", pen.write());
+        assertEquals("Writes in a large handwriting", marker.write());
     }
 }

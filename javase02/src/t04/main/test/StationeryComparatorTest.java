@@ -1,6 +1,5 @@
 package t04.main.test;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import t03.main.model.*;
@@ -10,6 +9,7 @@ import t04.main.model.StationeryComparator;
 import java.util.ArrayList;
 
 import static java.util.Collections.sort;
+import static org.junit.Assert.assertEquals;
 
 public class StationeryComparatorTest {
     private StationeryComparator comparator;
@@ -80,18 +80,18 @@ public class StationeryComparatorTest {
     @Test
     public void comparatorShouldReturnArrayListSortedByPrice() {
         sort(testKit.getKit(), comparator);
-        Assert.assertEquals(testKit.getKit(), sortedByPrice);
+        assertEquals(testKit.getKit(), sortedByPrice);
     }
 
     @Test
     public void comparatorByBrandShouldReturnArrayListSortedByBrand() {
         sort(testKit.getKit(), comparatorByBrand);
-        Assert.assertEquals(testKit.getKit(), sortedByBrand);
+        assertEquals(testKit.getKit(), sortedByBrand);
     }
 
     @Test
     public void comparatorByPriceAndBrandShouldReturnEqualArrayList() {
         sort(testKit.getKit(), comparatorByPriceAndBrand);
-        Assert.assertEquals(testKit.getKit(), sortedByPriceAndBrand);
+        assertEquals(testKit.getKit(), sortedByPriceAndBrand);
     }
 }

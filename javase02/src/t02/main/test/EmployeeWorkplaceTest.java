@@ -1,11 +1,12 @@
 package t02.main.test;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import t02.main.model.*;
 
 import java.util.LinkedList;
+
+import static org.junit.Assert.assertEquals;
 
 public class EmployeeWorkplaceTest {
     private EmployeeWorkplace employeeWorkplace;
@@ -21,14 +22,14 @@ public class EmployeeWorkplaceTest {
 
     @Test
     public void getEmployeeNameShouldReturnTrue(){
-        Assert.assertEquals("Misha", employeeWorkplace.getEmployeeName());
+        assertEquals("Misha", employeeWorkplace.getEmployeeName());
     }
     @Test
     public void getKitShouldReturnKit(){
-        Assert.assertEquals(stationeries, employeeWorkplace.getKit());
+        assertEquals(stationeries, employeeWorkplace.getKit());
     }
     @Test
     public void stationeryPriceCounterShouldReturnSum(){
-        Assert.assertEquals(620, employeeWorkplace.stationeryPriceCounter());
+        assertEquals(620, employeeWorkplace.stationeryPriceCounter());
     }
 }

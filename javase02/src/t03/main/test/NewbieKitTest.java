@@ -1,13 +1,14 @@
 package t03.main.test;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import t03.main.model.NewbieKit;
-import t03.main.model.Stationery;
 import t03.main.model.writingStationery.*;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class NewbieKitTest {
 
@@ -28,15 +29,15 @@ public class NewbieKitTest {
 
     @Test
     public void addToKitShouldIncreaseListSize() {
-        Assert.assertTrue(2 == noob.getSize());
+        assertTrue(2 == noob.getSize());
         noob.addToKit(marker);
-        Assert.assertTrue(3 == noob.getSize());
+        assertTrue(3 == noob.getSize());
     }
 
     @Test
     public void removeFromKitShouldDeleteElement() {
-        Assert.assertEquals(2, noob.getSize());
+        assertEquals(2, noob.getSize());
         noob.removeFromKit(pen);
-        Assert.assertEquals(1, noob.getSize());
+        assertEquals(1, noob.getSize());
     }
 }
