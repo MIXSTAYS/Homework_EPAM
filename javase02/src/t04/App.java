@@ -1,4 +1,4 @@
-package t04.main;
+package t04;
 
 import t03.main.model.NewbieKit;
 import t03.main.model.Paper;
