@@ -42,7 +42,7 @@ public class Marker extends Stationery implements WritingStationery {
 
     @Override
     public String toString() {
-        return String.format("Brand \"%s\". Marker type: %s. Color of the ink - %s",
-                getBrand(), getTypeOfMarker(), getInkColor());
+        return String.format("Brand \"%s\". Marker type: %s. Color of the ink - %s. It costs %d",
+                getBrand(), getTypeOfMarker(), getInkColor(), getPrice());
     }
 }
