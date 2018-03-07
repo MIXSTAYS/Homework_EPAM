@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class StationeryComparatorTest {
     private StationeryComparator comparator;
     private StationeryComparator.compareByBrand comparatorByBrand;
-    private StationeryComparator.compareByPriceAndBrand comparatorByPriceAndBrand;
+    private StationeryComparator.compareByPrice comparatorByPrice;
 
     private NewbieKit testKit;
 
@@ -25,15 +25,15 @@ public class StationeryComparatorTest {
     private EyeletPuncher eyeletPuncher;
     private Paper paper;
 
-    private ArrayList<Stationery> sortedByPrice;
+    private ArrayList<Stationery> sorted;
     private ArrayList<Stationery> sortedByBrand;
-    private ArrayList<Stationery> sortedByPriceAndBrand;
+    private ArrayList<Stationery> sortedByPrice;
 
     @Before
     public void setUp(){
         comparator = new StationeryComparator();
         comparatorByBrand = new StationeryComparator.compareByBrand();
-        comparatorByPriceAndBrand = new StationeryComparator.compareByPriceAndBrand();
+        comparatorByPrice = new StationeryComparator.compareByPrice();
 
         testKit = new NewbieKit("Test Guy", new ArrayList<>());
 
@@ -51,13 +51,13 @@ public class StationeryComparatorTest {
         testKit.addToKit(eyeletPuncher);
         testKit.addToKit(marker);
 
-        sortedByPrice = new ArrayList<>();
-        sortedByPrice.add(pencil);
-        sortedByPrice.add(pen);
-        sortedByPrice.add(marker);
-        sortedByPrice.add(eyeletPuncher);
-        sortedByPrice.add(paper);
-        sortedByPrice.add(pen2);
+        sorted = new ArrayList<>();
+        sorted.add(pencil);
+        sorted.add(pen);
+        sorted.add(marker);
+        sorted.add(eyeletPuncher);
+        sorted.add(paper);
+        sorted.add(pen2);
 
         sortedByBrand = new ArrayList<>();
         sortedByBrand.add(pencil);
@@ -67,31 +67,31 @@ public class StationeryComparatorTest {
         sortedByBrand.add(eyeletPuncher);
         sortedByBrand.add(marker);
 
-        sortedByPriceAndBrand = new ArrayList<>();
-        sortedByPriceAndBrand.add(pencil);
-        sortedByPriceAndBrand.add(pen);
-        sortedByPriceAndBrand.add(marker);
-        sortedByPriceAndBrand.add(eyeletPuncher);
-        sortedByPriceAndBrand.add(paper);
-        sortedByPriceAndBrand.add(pen2);
+        sortedByPrice = new ArrayList<>();
+        sortedByPrice.add(pencil);
+        sortedByPrice.add(pen);
+        sortedByPrice.add(marker);
+        sortedByPrice.add(eyeletPuncher);
+        sortedByPrice.add(paper);
+        sortedByPrice.add(pen2);
 
     }
 
     @Test
-    public void comparatorShouldReturnArrayListSortedByPrice() {
-        sort(testKit.getKit(), comparator);
-        assertEquals(testKit.getKit(), sortedByPrice);
+    public void comparatorShouldReturnArrayListSortedByPriceAndBrand() {
+        testKit.getKit().sort(comparator);
+        assertEquals(testKit.getKit(), sorted);
     }
 
     @Test
     public void comparatorByBrandShouldReturnArrayListSortedByBrand() {
-        sort(testKit.getKit(), comparatorByBrand);
+        testKit.getKit().sort(comparatorByBrand);
         assertEquals(testKit.getKit(), sortedByBrand);
     }
 
     @Test
-    public void comparatorByPriceAndBrandShouldReturnEqualArrayList() {
-        sort(testKit.getKit(), comparatorByPriceAndBrand);
-        assertEquals(testKit.getKit(), sortedByPriceAndBrand);
+    public void comparatorByPriceShouldReturnEqualArrayList() {
+        testKit.getKit().sort(comparatorByPrice);
+        assertEquals(testKit.getKit(), sortedByPrice);
     }
 }

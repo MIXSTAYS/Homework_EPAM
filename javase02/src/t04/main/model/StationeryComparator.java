@@ -13,7 +13,7 @@ public class StationeryComparator implements Comparator<Stationery> {
         } else if (stationery1.getPrice() > stationery2.getPrice()) {
             return 1;
         } else {
-            return 0;
+            return stationery1.getBrand().compareTo(stationery2.getBrand());
         }
     }
 
@@ -25,7 +25,7 @@ public class StationeryComparator implements Comparator<Stationery> {
         }
     }
 
-    public static class compareByPriceAndBrand implements Comparator<Stationery> {
+    public static class compareByPrice implements Comparator<Stationery> {
 
         @Override
         public int compare(Stationery stationery1, Stationery stationery2) {
@@ -34,7 +34,7 @@ public class StationeryComparator implements Comparator<Stationery> {
             } else if (stationery1.getPrice() > stationery2.getPrice()) {
                 return 1;
             } else {
-                return stationery1.getBrand().compareTo(stationery2.getBrand());
+                return 0;
             }
         }
     }
