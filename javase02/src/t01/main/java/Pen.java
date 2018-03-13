@@ -1,30 +1,28 @@
-package t01.main.model;
-
-import static t01.main.model.PenColor.BLUE;
+package t01.main.java;
 
 public class Pen {
     private String brand;
-    private PenColor inkColor;
+    private String inkColor = "not defined";
     private double penSize;
 
     public Pen(String brand) {
-        this(brand, BLUE, 0.8);
-    }
-
-    public Pen(String brand, PenColor inkColor, double penSize) {
         this.brand = brand;
-        this.inkColor = inkColor;
-        this.penSize = penSize;
     }
 
-    public void setInkColorAndPenSize(PenColor inkColor, double penSize) {
-
-        this.penSize = penSize;
-        this.inkColor = inkColor;
+    public void setInkColorAndPenSize(String inkColor, double penSize){
+        try{
+            if (String.valueOf(penSize).split("\\.")[1].length() > 1) {
+                throw new IllegalArgumentException();
+            } else {
+                this.penSize = penSize;
+                this.inkColor = inkColor;
+            }
+        } catch (IllegalArgumentException e){
+            System.out.println("Ink color and pen size haven't been set");
+        }
     }
 
-
-    public PenColor getInkColor() {
+    public String getInkColor() {
         return inkColor;
     }
 
@@ -53,19 +51,20 @@ public class Pen {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         final int prime = 31;
         int result = 1;
         long longPenSize = Double.doubleToLongBits(penSize);
-        result = prime * result + (int) (longPenSize - (longPenSize >>> 32));
+        result = prime * result + (int)(longPenSize - (longPenSize >>> 32));
         result = prime * result + ((brand == null) ? 0 : brand.hashCode());
         result = prime * result + ((inkColor == null) ? 0 : inkColor.hashCode());
         return result;
     }
 
     @Override
-    public String toString() {
-        String formatted = String.format("Brand %s. Pen size: %.1f. Color of the ink - %s", brand, penSize, inkColor);
-        return formatted;
+    public String toString(){
+        return "Brand " + brand +
+                ". Pen size: " + penSize +
+                ". Color of the ink - " + inkColor;
     }
 }
