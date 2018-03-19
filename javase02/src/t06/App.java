@@ -1,6 +1,9 @@
 package t06;
 
-import t06.main.model.AtomicBoat;
+import t06.main.java.AtomicBoat;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {

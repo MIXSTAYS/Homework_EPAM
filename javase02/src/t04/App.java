@@ -1,11 +1,11 @@
 package t04;
 
-import t03.main.model.NewbieKit;
-import t03.main.model.Paper;
-import t03.main.model.PaperFormat;
-import t03.main.model.Stationery;
-import t03.main.model.writingStationery.*;
-import t04.main.model.StationeryComparator;
+import t03.main.java.NewbieKit;
+import t03.main.java.Paper;
+import t03.main.java.PaperFormat;
+import t03.main.java.Stationery;
+import t03.main.java.writingStationery.*;
+import t04.main.java.StationeryComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;

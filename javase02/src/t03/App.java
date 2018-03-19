@@ -1,9 +1,9 @@
 package t03;
 
-import t03.main.model.*;
-import t03.main.model.writingStationery.Color;
-import t03.main.model.writingStationery.Pen;
-import t03.main.model.writingStationery.Pencil;
+import t03.main.java.*;
+import t03.main.java.writingStationery.Color;
+import t03.main.java.writingStationery.Pen;
+import t03.main.java.writingStationery.Pencil;
 
 import java.util.ArrayList;
 import java.util.Iterator;
