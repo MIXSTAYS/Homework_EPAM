@@ -1,10 +1,10 @@
-package t01.main.java;
+package t01_02.main.java;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Words {
+public class Words_Byte {
 
     public static ArrayList<String> keyWords = javaKeyWords("javase04/src/t01/main/resources/java_words.txt");
 
@@ -18,6 +18,28 @@ public class Words {
             return stringBuilder;
         } catch (FileNotFoundException e) {
             System.out.println(String.format("File %s doesn't exist ", fileName));
+            return null;
+        } catch (IOException e) {
+            System.out.println("IO error");
+            return null;
+        }
+    }
+
+    public static ArrayList<String> javaKeyWords(String filePath) {
+        try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
+            ArrayList<String> list = new ArrayList<>();
+            int c;
+            StringBuilder stringBuilder = new StringBuilder();
+            while ((c = fileInputStream.read()) != -1) {
+                stringBuilder.append((char) c);
+            }
+            String[] split = stringBuilder.toString().split("\r\n");
+            for (String word : split) {
+                list.add(word);
+            }
+            return list;
+        } catch (FileNotFoundException e) {
+            System.out.println(String.format("File %s doesn't exist ", filePath));
             return null;
         } catch (IOException e) {
             System.out.println("IO error");
@@ -43,28 +65,6 @@ public class Words {
             }
         }
         return map;
-    }
-
-    public static ArrayList<String> javaKeyWords(String filePath) {
-        try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
-            ArrayList<String> list = new ArrayList<>();
-            int c;
-            StringBuilder stringBuilder = new StringBuilder();
-            while ((c = fileInputStream.read()) != -1) {
-                stringBuilder.append((char) c);
-            }
-            String[] split = stringBuilder.toString().split("\r\n");
-            for (String word : split) {
-                list.add(word);
-            }
-            return list;
-        } catch (FileNotFoundException e) {
-            System.out.println(String.format("File %s doesn't exist ", filePath));
-            return null;
-        } catch (IOException e) {
-            System.out.println("IO error");
-            return null;
-        }
     }
 
     public static void writeInFile(HashMap<String, Integer> inputFile) {
@@ -95,6 +95,5 @@ public class Words {
             System.out.println(k + " : " + v);
         });
         writeInFile(map);
-
     }
 }
