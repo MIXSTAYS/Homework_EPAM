@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Words_Symbol {
 
-    private static ArrayList<String> keyWords = javaKeyWords("javase04/src/t01/main/resources/java_words.txt");
+    private static ArrayList<String> keyWords = javaKeyWords("javase04/src/t01_02/main/resources/java_words.txt");
 
     public static StringBuilder readFile(String fileName) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
@@ -64,7 +64,7 @@ public class Words_Symbol {
 
     public static void writeInFile(HashMap<String, Integer> inputFile) {
         try (BufferedWriter bufferedWriter
-                     = new BufferedWriter(new FileWriter("javase04/src/t01/main/resources/output_words.txt"))) {
+                     = new BufferedWriter(new FileWriter("javase04/src/t01_02/main/resources/output_words.txt"))) {
             for (String b : inputFile.keySet()) {
                 bufferedWriter.write(b + " : " + inputFile.get(b));
                 bufferedWriter.newLine();
@@ -78,7 +78,7 @@ public class Words_Symbol {
 
     public static void main(String[] args) {
         HashMap map = analyseWords(
-                readFile("javase04/src/t01/main/resources/words.txt"));
+                readFile("javase04/src/t01_02/main/resources/words.txt"));
         map.forEach((k, v) -> {
             System.out.println(k + " : " + v);
         });
