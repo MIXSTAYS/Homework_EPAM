@@ -31,4 +31,12 @@ public class CrazyLoggerTest {
         crazyLogger.addMessage("Second msg.");
         assertEquals(79, crazyLogger.getStringBuilder().length());
     }
+
+    @Test
+    public void getMessageShouldReturnMessage() {
+        crazyLogger.addMessage("Test passed");
+        crazyLogger.addMessage("What message?");
+        crazyLogger.getMessage("Test");
+        assertEquals(2, crazyLogger.getNotesCounter());
+    }
 }
