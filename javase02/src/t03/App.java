@@ -32,7 +32,7 @@ public class App {
             System.out.println(item);
         }
 
-        System.out.println("ПРОБЕЛ");
+        System.out.println("");
 
         Iterator<Stationery> iterator = noob.getKit().iterator();
         while (iterator.hasNext()) {
