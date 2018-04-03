@@ -19,9 +19,9 @@ public class App {
         Student st6 = new Student("Vitaliy", "Irkov");
         Student st7 = new Student("Igor", "Davidov");
 
-        Group <RealMark> math = new Group("MathMen", Discipline.MATHEMATICS);
-        Group <IntMark> bio = new Group("Bio", Discipline.BIOLOGY);
-        Group <IntMark> geo = new Group("Globus", Discipline.GEOGRAPHY);
+        Group <RealMark> math = new Group <>("MathMen", Discipline.MATHEMATICS);
+        Group <IntMark> bio = new Group<>("Bio", Discipline.BIOLOGY);
+        Group <IntMark> geo = new Group<>("Globus", Discipline.GEOGRAPHY);
 
         math.addStudent(st1, new RealMark(4.5));
         math.addStudent(st2, new RealMark(5));

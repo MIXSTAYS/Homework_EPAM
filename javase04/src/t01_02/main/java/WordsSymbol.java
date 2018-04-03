@@ -3,17 +3,18 @@ package t01_02.main.java;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-public class Words_Byte {
+public class WordsSymbol {
 
-    public static ArrayList<String> keyWords = javaKeyWords("javase04/src/t01/main/resources/java_words.txt");
+    private static List<String> keyWords = javaKeyWords("javase04/src/t01_02/main/resources/java_words.txt");
 
     public static StringBuilder readFile(String fileName) {
-        try (FileInputStream fileInputStream = new FileInputStream(fileName)) {
-            int c;
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+            String line;
             StringBuilder stringBuilder = new StringBuilder();
-            while ((c = fileInputStream.read()) != -1) {
-                stringBuilder.append((char) c);
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line + " ");
             }
             return stringBuilder;
         } catch (FileNotFoundException e) {
@@ -26,16 +27,11 @@ public class Words_Byte {
     }
 
     public static ArrayList<String> javaKeyWords(String filePath) {
-        try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            String line;
             ArrayList<String> list = new ArrayList<>();
-            int c;
-            StringBuilder stringBuilder = new StringBuilder();
-            while ((c = fileInputStream.read()) != -1) {
-                stringBuilder.append((char) c);
-            }
-            String[] split = stringBuilder.toString().split("\r\n");
-            for (String word : split) {
-                list.add(word);
+            while ((line = bufferedReader.readLine()) != null) {
+                list.add(line);
             }
             return list;
         } catch (FileNotFoundException e) {
@@ -68,19 +64,12 @@ public class Words_Byte {
     }
 
     public static void writeInFile(HashMap<String, Integer> inputFile) {
-        try (FileOutputStream fileOutputStream
-                     = new FileOutputStream("javase04/src/t01/main/resources/output_words.txt")) {
-            inputFile.forEach((k, v) -> {
-                try {
-                    byte[] byteArray = (k + ": " + v).getBytes();
-                    for (byte b : byteArray) {
-                        fileOutputStream.write(b);
-                    }
-                    fileOutputStream.write('\n');
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+        try (BufferedWriter bufferedWriter
+                     = new BufferedWriter(new FileWriter("javase04/src/t01_02/main/resources/output_words.txt"))) {
+            for (String b : inputFile.keySet()) {
+                bufferedWriter.write(b + " : " + inputFile.get(b));
+                bufferedWriter.newLine();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -90,9 +79,9 @@ public class Words_Byte {
 
     public static void main(String[] args) {
         HashMap map = analyseWords(
-                readFile("javase04/src/t01/main/resources/words.txt"));
-        map.forEach((k, v) -> {
-            System.out.println(k + " : " + v);
+                readFile("javase04/src/t01_02/main/resources/words.txt"));
+        map.forEach((key, value) -> {
+            System.out.println(key + " : " + value);
         });
         writeInFile(map);
     }

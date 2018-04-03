@@ -3,14 +3,7 @@ package t02.main.java;
 import java.util.*;
 
 public class Quiz {
-    private static ArrayList<String> convertResourceBundleToList(ResourceBundle resourceBundle) {
-        ArrayList<String> list = new ArrayList<>();
-
-        resourceBundle.keySet().forEach(key -> {
-            list.add(resourceBundle.getString(key));
-        });
-        return list;
-    }
+    private static int questionCounter;
 
     public static Locale getLanguage(String inputLanguage) {
         switch (inputLanguage) {
@@ -25,10 +18,9 @@ public class Quiz {
 
     public static void showQuestions(Locale locale) {
         ResourceBundle questions = ResourceBundle.getBundle("Questions", locale);
-        ArrayList<String> questionsList = convertResourceBundleToList(questions);
-        int i = 1;
-        for (String question : questionsList) {
-            System.out.println(i++ + ") " + question);
+        List<String> questionsList = QuizUtil.convertResourceBundleToList(questions);
+        for (questionCounter = 0; questionCounter <= questionsList.size() - 1; questionCounter++) {
+            System.out.println((questionCounter + 1) + ") " + questionsList.get(questionCounter));
         }
     }
 
@@ -41,13 +33,18 @@ public class Quiz {
 
         showQuestions(locale);
 
-        System.out.println(ResourceBundle.getBundle("UIMessages", locale).getString("choose_question"));
+        System.out.println(ResourceBundle.getBundle("UIMessages", locale).getString("choose_question")
+                + " (" + 1 + " - " + (questionCounter) + "):");
 
         ResourceBundle answers = ResourceBundle.getBundle("Answers", locale);
-        ArrayList<String> answersList = convertResourceBundleToList(answers);
+        List<String> answersList = QuizUtil.convertResourceBundleToList(answers);
 
         Scanner numberOfAnswer = new Scanner(System.in);
         int inputNumber = numberOfAnswer.nextInt() - 1;
-        System.out.println(answersList.get(inputNumber));
+        if (inputNumber < answersList.size() & inputNumber > 0) {
+            System.out.println(answersList.get(inputNumber));
+        } else {
+            System.out.println(ResourceBundle.getBundle("UIMessages", locale).getString("right_question"));
+        }
     }
 }

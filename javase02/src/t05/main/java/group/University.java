@@ -10,7 +10,7 @@ import java.util.List;
 
 public class University {
 
-    private ArrayList<Group> groups = new ArrayList<>();
+    private List<Group> groups = new ArrayList<>();
 
     public void addGroup(Group group) {
         groups.add(group);
@@ -19,9 +19,9 @@ public class University {
     public void printMarks(Student student) {
         List<Mark> buffMarks = new ArrayList<>();
         groups.forEach(group -> {
-            Object obj = group.getMark(student);
-            if (obj != null) {
-                buffMarks.add((Mark) obj);
+            Mark mark = group.getMark(student);
+            if (mark != null) {
+                buffMarks.add(mark);
             }
         });
         Collections.sort(buffMarks, new MarksComparator());

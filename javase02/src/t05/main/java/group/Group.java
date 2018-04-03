@@ -7,12 +7,13 @@ import t05.main.java.student.Student;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Group<T extends Mark> {
 
     private String groupName;
     private Discipline subject;
-    private HashMap<Student, Mark> journal = new HashMap();
+    private Map<Student, Mark> journal = new HashMap<>();
 
     public Group(String groupName, Discipline subject) {
         this.groupName = groupName;
@@ -28,7 +29,7 @@ public class Group<T extends Mark> {
         return journal.get(student);
     }
 
-    public HashMap<Student, Mark> getJournal() {
+    public Map<Student, Mark> getJournal() {
         return journal;
     }
 

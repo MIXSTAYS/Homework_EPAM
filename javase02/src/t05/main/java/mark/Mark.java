@@ -7,4 +7,6 @@ public interface Mark{
     Discipline getDiscipline();
 
     void setDiscipline(Discipline discipline);
+
+    double getRealValue();
 }

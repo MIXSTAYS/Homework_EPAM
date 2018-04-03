@@ -8,7 +8,7 @@ public class CrazyLogger {
 
     private Date data = new Date();
     private StringBuilder stringBuilder = new StringBuilder();
-    private DateFormat dateFormat = new SimpleDateFormat("dd-mm-YYYY : HH-mm-ss");
+    private final DateFormat dateFormat = new SimpleDateFormat("dd-mm-YYYY : HH-mm-ss");
     private int notesCounter;
 
     public void addMessage(String message) {
@@ -16,6 +16,7 @@ public class CrazyLogger {
     }
 
     public void getMessage(String mes) {
+        notesCounter = 0;
         String[] messages = stringBuilder.toString().split("\n");
         for (String elem : messages) {
             if (elem.contains(mes)) {
