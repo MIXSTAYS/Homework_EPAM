@@ -28,6 +28,11 @@ public class RealMark implements Mark {
     }
 
     @Override
+    public double getRealValue() {
+        return value;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
