@@ -7,27 +7,52 @@ import java.util.Properties;
 
 public class PropertyReader {
 
-    public static String propertyRead (String fileName, String key) throws IOException {
+    private static Properties properties;
 
-        Properties properties = new Properties();
+    public static void propertyRead(String fileName) {
+        try (FileInputStream readFile = new FileInputStream(fileName)) {
+            properties = new Properties();
 
-        properties.load(new FileInputStream(fileName));
-        if(properties.getProperty(key) == null) {
+            properties.load(readFile);
+
+        } catch (NoSuchKeyException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (IOException e) {
+            System.exit(1);
+            e.printStackTrace();
+        }
+    }
+
+    public static String propertyStringRead (String key) {
+        if (properties.getProperty(key) == null) {
             throw new NoSuchKeyException("Key not found.");
         } else {
             return properties.getProperty(key);
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            System.out.println(PropertyReader
-                    .propertyRead(
-                            "javase05\\t01\\main\\resources\\universal.property", "2"));
-        } catch (NoSuchKeyException | FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+//    public static String propertyRead(String fileName, String key) {
+//        try (FileInputStream readFile = new FileInputStream(fileName);) {
+//            Properties properties = new Properties();
+//
+//            properties.load(readFile);
+//            if (properties.getProperty(key) == null) {
+//                throw new NoSuchKeyException("Key not found.");
+//            } else {
+//                return properties.getProperty(key);
+//            }
+//        } catch (NoSuchKeyException | FileNotFoundException e) {
+//            e.printStackTrace();
+//            System.exit(1);
+//        } catch (IOException e) {
+//            System.exit(1);
+//            e.printStackTrace();
+//        }
+//        return "System.exit(1)";
+//    }
 }

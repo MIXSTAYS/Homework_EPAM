@@ -13,18 +13,19 @@ import static org.junit.Assert.assertEquals;
 public class PropertyReaderTest {
 
     @Test(expected = FileNotFoundException.class)
-    public void propertyReadShouldThrowFileNotFoundException() throws IOException {
-        PropertyReader.propertyRead("t01\\test\\resources\\universalTest.property", "2");
+    public void propertyReadShouldThrowFileNotFoundException() {
+        PropertyReader.propertyRead("t01\\test\\resources\\universalTEST.property");
     }
 
     @Test(expected = NoSuchKeyException.class)
-    public void propertyReadShouldThrowNoSuchKeyException() throws IOException {
-        PropertyReader.propertyRead("t01\\test\\resources\\universal.property", "4");
+    public void propertyReadShouldThrowNoSuchKeyException() {
+        PropertyReader.propertyRead("t01\\test\\resources\\universal.property");
+        PropertyReader.propertyStringRead("5");
     }
 
     @Test
-    public void propertyReaderShouldReturnString() throws IOException {
-        assertEquals("First",
-                PropertyReader.propertyRead("t01\\test\\resources\\universal.property", "1"));
+    public void propertyReaderShouldReturnString() {
+        PropertyReader.propertyRead("t01\\test\\resources\\universal.property");
+        assertEquals("First", PropertyReader.propertyStringRead("1"));
     }
 }
