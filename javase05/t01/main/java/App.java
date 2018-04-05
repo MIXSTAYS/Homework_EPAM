@@ -1,8 +1,3 @@
-import exception.NoSuchKeyException;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class App {
     public static void main(String[] args) {
             PropertyReader

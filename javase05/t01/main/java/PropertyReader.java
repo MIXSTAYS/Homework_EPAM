@@ -34,25 +34,4 @@ public class PropertyReader {
             return properties.getProperty(key);
         }
     }
-
-
-//    public static String propertyRead(String fileName, String key) {
-//        try (FileInputStream readFile = new FileInputStream(fileName);) {
-//            Properties properties = new Properties();
-//
-//            properties.load(readFile);
-//            if (properties.getProperty(key) == null) {
-//                throw new NoSuchKeyException("Key not found.");
-//            } else {
-//                return properties.getProperty(key);
-//            }
-//        } catch (NoSuchKeyException | FileNotFoundException e) {
-//            e.printStackTrace();
-//            System.exit(1);
-//        } catch (IOException e) {
-//            System.exit(1);
-//            e.printStackTrace();
-//        }
-//        return "System.exit(1)";
-//    }
 }
