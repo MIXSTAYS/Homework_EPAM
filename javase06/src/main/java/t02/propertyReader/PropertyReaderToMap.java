@@ -3,6 +3,7 @@ package t02.propertyReader;
 import exception.NoSuchKeyException;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,33 +11,37 @@ import java.util.Properties;
 
 public class PropertyReaderToMap {
 
+    private static Properties properties;
     private static HashMap<String, String> propertyNotes = new HashMap<>();
 
-    private static String propertyRead (String fileName, String key) throws IOException {
+    public static void propertyRead (String fileName) {
+        try (FileInputStream readFile = new FileInputStream(fileName)) {
+            properties = new Properties();
 
-        Properties properties = new Properties();
+            properties.load(readFile);
 
-        properties.load(new FileInputStream(fileName));
-        if(properties.getProperty(key) == null) {
+        } catch (NoSuchKeyException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (IOException e) {
+            System.exit(1);
+            e.printStackTrace();
+        }
+    }
+
+    public static String propertyStringRead (String key) {
+        if (properties.getProperty(key) == null) {
             throw new NoSuchKeyException("Key not found.");
         } else {
             return properties.getProperty(key);
         }
     }
 
-    public static Map<String, String> propertyReaderToMap (String fileName, String key) throws IOException {
-        propertyNotes.put(key, PropertyReaderToMap.propertyRead(fileName, key));
+    public static Map<String, String> propertyReaderToMap (String key) throws IOException {
+        propertyNotes.put(key, PropertyReaderToMap.propertyStringRead(key));
         return propertyNotes;
-    }
-
-    public static void main(String[] args) throws IOException {
-        System.out.println(propertyReaderToMap(
-                "javase06\\src\\main\\java\\t02\\resources\\property.property", "1"));
-        System.out.println(propertyReaderToMap(
-                "javase06\\src\\main\\java\\t02\\resources\\property.property", "2"));
-        System.out.println(propertyReaderToMap(
-                "javase06\\src\\main\\java\\t02\\resources\\property.property", "3"));
-
-        //При добавлении элемента с ключом, который уже присутствует, прошлый ключ перезаписывается
     }
 }
