@@ -1,9 +1,7 @@
 import t02.propertyReader.PropertyReaderToMap;
 
-import java.io.IOException;
-
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         PropertyReaderToMap propertyReaderToMap = new PropertyReaderToMap();
         propertyReaderToMap.propertyRead("javase06\\src\\main\\java\\t02\\resources\\property.property");
         propertyReaderToMap.propertyReaderToMap();
