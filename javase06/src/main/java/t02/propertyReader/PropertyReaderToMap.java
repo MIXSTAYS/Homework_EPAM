@@ -14,40 +14,41 @@ public class PropertyReaderToMap {
 
     private Properties properties;
     private Map<String, String> propertyNotes = new HashMap<>();
-    private static int opensCounter = 0;
+    private static Map<String, Properties> map = new HashMap<>();
 
     public void propertyRead(String fileName) {
-        if (opensCounter > 0) {
+        if (map.containsKey(fileName)) {
             System.out.println("File already open");
-        } else {
-            try (FileInputStream readFile = new FileInputStream(fileName)) {
-                properties = new Properties();
-                properties.load(readFile);
-                opensCounter++;
-            } catch (NoSuchKeyException e) {
-                e.printStackTrace();
-                System.exit(1);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                System.exit(1);
-            } catch (IOException e) {
-                System.exit(1);
-                e.printStackTrace();
-            }
+        }
+        try (FileInputStream readFile = new FileInputStream(fileName)) {
+            properties = new Properties();
+            properties.load(readFile);
+            map.put(fileName, properties);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        } catch (IOException e) {
+            System.exit(1);
+            e.printStackTrace();
         }
     }
 
     public String propertyStringRead(String key) {
-        if (propertyNotes.get(key) == null) {
-            throw new NoSuchKeyException("Key not found.");
-        } else {
-            return propertyNotes.get(key);
+        try {
+            if (propertyNotes.get(key) == null) {
+                throw new NoSuchKeyException("Key not found.");
+            } else {
+                return propertyNotes.get(key);
+            }
+        } catch (NoSuchKeyException e) {
+            e.printStackTrace();
+            System.exit(1);
         }
+        return null;
     }
 
     public void propertyReaderToMap() {
         Enumeration enumeration = properties.propertyNames();
-
         for (; enumeration.hasMoreElements(); ) {
             String key = (String) enumeration.nextElement();
             String value = properties.getProperty(key);
