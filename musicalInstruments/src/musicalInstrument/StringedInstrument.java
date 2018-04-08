@@ -6,11 +6,12 @@ abstract class StringedInstrument implements MusicalInstrument {
     private int numberOfStrings; // Encapsulation
     private String name;
 
-    public StringedInstrument(String name){
+
+    public StringedInstrument(String name) {
         this.name = name;
     }
 
-    public abstract void information(String name, Melody melody); // Inheritance
+    public abstract void play(String melody); // Inheritance
 
     public abstract void description();
 

@@ -6,12 +6,12 @@ abstract class PercussionInstrument implements MusicalInstrument {
     private String material;
     private String name;
 
-    public PercussionInstrument(String name, String material){
+    public PercussionInstrument(String name, String material) {
         this.name = name;
         this.material = material;
     }
 
-    public abstract void information(String name, Melody melody);
+    public abstract void play(String melody);
 
     public abstract void description();
 

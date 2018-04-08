@@ -6,11 +6,11 @@ abstract class WindInstrument implements MusicalInstrument {
     private int tone;
     private String name;
 
-    public WindInstrument(String name){
+    public WindInstrument(String name) {
         this.name = name;
     }
 
-    public abstract void information(String name, Melody melody);
+    public abstract void play(String melody);
 
     public abstract void description();
 
