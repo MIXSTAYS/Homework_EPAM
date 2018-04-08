@@ -10,7 +10,7 @@ public class PropertyReader {
     private static Properties properties;
     private static int opensCounter = 0;
 
-    public static void propertyRead(String fileName) {
+    public void propertyRead(String fileName) {
         if (opensCounter > 0) {
             System.out.println("File already open");
         } else {
@@ -31,7 +31,7 @@ public class PropertyReader {
         }
     }
 
-    public static String propertyStringRead (String key) {
+    public String propertyStringRead (String key) {
         if (properties.getProperty(key) == null) {
             throw new NoSuchKeyException("Key not found.");
         } else {

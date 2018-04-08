@@ -1,4 +1,5 @@
 import exception.NoSuchKeyException;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -7,21 +8,22 @@ import static org.junit.Assert.assertEquals;
 
 
 public class PropertyReaderTest {
+    private PropertyReader propertyReader = new PropertyReader();
 
     @Test(expected = FileNotFoundException.class)
     public void propertyReadShouldThrowFileNotFoundException() {
-        PropertyReader.propertyRead("t01\\test\\resources\\universalTEST.property");
+        propertyReader.propertyRead("t01\\test\\resources\\universalTEST.property");
     }
 
     @Test(expected = NoSuchKeyException.class)
     public void propertyReadShouldThrowNoSuchKeyException() {
-        PropertyReader.propertyRead("t01\\test\\resources\\universal.property");
-        PropertyReader.propertyStringRead("5");
+        propertyReader.propertyRead("t01\\test\\resources\\universal.property");
+        propertyReader.propertyStringRead("5");
     }
 
     @Test
     public void propertyReaderShouldReturnString() {
-        PropertyReader.propertyRead("t01\\test\\resources\\universal.property");
-        assertEquals("First", PropertyReader.propertyStringRead("1"));
+        propertyReader.propertyRead("t01\\test\\resources\\universal.property");
+        assertEquals("First", propertyReader.propertyStringRead("1"));
     }
 }
