@@ -8,22 +8,26 @@ import java.util.Properties;
 public class PropertyReader {
 
     private static Properties properties;
+    private static int opensCounter = 0;
 
     public static void propertyRead(String fileName) {
-        try (FileInputStream readFile = new FileInputStream(fileName)) {
-            properties = new Properties();
-
-            properties.load(readFile);
-
-        } catch (NoSuchKeyException e) {
-            e.printStackTrace();
-            System.exit(1);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.exit(1);
-        } catch (IOException e) {
-            System.exit(1);
-            e.printStackTrace();
+        if (opensCounter > 0) {
+            System.out.println("File already open");
+        } else {
+            try (FileInputStream readFile = new FileInputStream(fileName)) {
+                properties = new Properties();
+                properties.load(readFile);
+                opensCounter++;
+            } catch (NoSuchKeyException e) {
+                e.printStackTrace();
+                System.exit(1);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                System.exit(1);
+            } catch (IOException e) {
+                System.exit(1);
+                e.printStackTrace();
+            }
         }
     }
 
