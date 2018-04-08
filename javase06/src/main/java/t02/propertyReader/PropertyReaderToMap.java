@@ -37,9 +37,8 @@ public class PropertyReaderToMap {
         try {
             if (propertyNotes.get(key) == null) {
                 throw new NoSuchKeyException("Key not found.");
-            } else {
-                return propertyNotes.get(key);
             }
+            return propertyNotes.get(key);
         } catch (NoSuchKeyException e) {
             e.printStackTrace();
             System.exit(1);
