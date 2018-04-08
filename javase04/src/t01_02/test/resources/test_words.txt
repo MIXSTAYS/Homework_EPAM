@@ -1,4 +1,0 @@
-horse
-new
-public
-man
