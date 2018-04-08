@@ -3,10 +3,11 @@ package t01_02.main.java;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class WordsByte {
 
-    public static ArrayList<String> keyWords = javaKeyWords("javase04/src/t01_02/main/resources/java_words.txt");
+    private static List<String> keyWords = javaKeyWords("javase04/src/t01_02/main/resources/java_words.txt");
 
     public static StringBuilder readFile(String fileName) {
         try (FileInputStream fileInputStream = new FileInputStream(fileName)) {
@@ -27,9 +28,9 @@ public class WordsByte {
         }
     }
 
-    public static ArrayList<String> javaKeyWords(String filePath) {
+    private static List<String> javaKeyWords(String filePath) {
         try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
-            ArrayList<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<>();
             StringBuilder stringBuilder = readFile(filePath);
             String[] split = stringBuilder.toString().split("\r\n");
             for (String word : split) {
@@ -65,9 +66,9 @@ public class WordsByte {
         return map;
     }
 
-    public static void writeInFile(HashMap<String, Integer> inputFile) {
+    public static void writeInFile(HashMap<String, Integer> inputFile, String filePath) {
         try (FileOutputStream fileOutputStream
-                     = new FileOutputStream("javase04/src/t01_02/main/resources/output_words.txt")) {
+                     = new FileOutputStream(filePath)) {
             inputFile.forEach((key, value) -> {
                 try {
                     byte[] byteArray = (key + ": " + value).getBytes();
@@ -92,6 +93,6 @@ public class WordsByte {
         map.forEach((k, v) -> {
             System.out.println(k + " : " + v);
         });
-        writeInFile(map);
+        writeInFile(map,"javase04/src/t01_02/main/resources/output_words.txt");
     }
 }
