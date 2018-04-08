@@ -58,7 +58,7 @@ public class Pen {
         int result = 1;
         long longPenSize = Double.doubleToLongBits(penSize);
         result = prime * result + (int) (longPenSize - (longPenSize >>> 32));
-        result = prime *result + ((brand == null) ? 0 : brand.hashCode());
+        result = prime * result + ((brand == null) ? 0 : brand.hashCode());
         result = prime * result + ((inkColor == null) ? 0 : inkColor.hashCode());
         return result;
     }
