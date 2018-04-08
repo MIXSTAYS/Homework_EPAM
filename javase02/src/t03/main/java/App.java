@@ -19,7 +19,7 @@ public class App {
         Stationery eyeletPuncher = new EyeletPuncher("NoNamePuncher", 200);
 
 
-        NewbieKit noob = new NewbieKit("Vasya", new ArrayList<>());
+        NewbieKit noob = new NewbieKit("Vasya",new ArrayList<>());
 
 
         noob.addToKit(pencil);
