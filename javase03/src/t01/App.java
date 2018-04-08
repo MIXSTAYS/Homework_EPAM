@@ -10,8 +10,7 @@ public class App {
         crazyLogger.addMessage("Ded zakinul nevod");
         Thread.sleep(1000);
         crazyLogger.addMessage("Shel silniy dozhd'");
-        crazyLogger.getMessage("a");
+        System.out.println(crazyLogger.getMessage("mila"));
 
-        System.out.println(crazyLogger.getNotesCounter() + " notes.");
     }
 }

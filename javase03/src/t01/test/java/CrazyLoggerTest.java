@@ -37,6 +37,5 @@ public class CrazyLoggerTest {
         crazyLogger.addMessage("Test passed");
         crazyLogger.addMessage("What message?");
         crazyLogger.getMessage("Test");
-        assertEquals(2, crazyLogger.getNotesCounter());
     }
 }
