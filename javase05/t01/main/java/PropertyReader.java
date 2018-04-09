@@ -1,10 +1,12 @@
 import exception.NoSuchKeyException;
+import exception.NotFoundPropertyException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.MissingResourceException;
 import java.util.Properties;
 
 public class PropertyReader {
@@ -12,7 +14,7 @@ public class PropertyReader {
     private Properties properties;
     private static Map<String, Properties> map = new HashMap<>();
 
-    public void propertyRead(String fileName) {
+    public void propertyRead(String fileName) throws NotFoundPropertyException {
         if (map.containsKey(fileName)) {
             System.out.println("File already open");
         }
@@ -21,8 +23,7 @@ public class PropertyReader {
             properties.load(readFile);
             map.put(fileName, properties);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.exit(1);
+            throw new NotFoundPropertyException(fileName);
         } catch (IOException e) {
             System.exit(1);
             e.printStackTrace();
@@ -32,7 +33,7 @@ public class PropertyReader {
     public String propertyStringRead (String key) {
         try {
             if (properties.getProperty(key) == null) {
-                throw new NoSuchKeyException("Key not found.");
+                throw new NoSuchKeyException(key);
             }
             return properties.getProperty(key);
         } catch (NoSuchKeyException e) {
