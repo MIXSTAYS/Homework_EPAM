@@ -14,15 +14,15 @@ public class CrazyLogger {
 
     public void addMessage(String message) {
         data = new Date();
-        stringBuilder.append(dateFormat.format(data) + " - " + message + "; ;");
+        stringBuilder.append(dateFormat.format(data) + " - " + message + ";");
     }
 
     public List<String> getMessage(String mes) {
-        String[] messages = stringBuilder.toString().split(" ;");
+        String[] messages = stringBuilder.toString().split(";");
         List<String> foundedMessage = new ArrayList<>();
         for (String elem : messages) {
             if (elem.contains(mes)) {
-                foundedMessage.add(elem);
+                foundedMessage.add(elem + ";");
             }
         }
         return foundedMessage;
