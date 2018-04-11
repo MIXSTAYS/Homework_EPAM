@@ -22,7 +22,6 @@ public class FilmUtil {
             System.exit(1);
             return null;
         } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
             c.printStackTrace();
             System.exit(1);
             return null;
